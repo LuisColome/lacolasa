@@ -1,0 +1,13 @@
+@use "abstracts" as *;
+
+/* Gutenberg color ptions for text
+--------------------------------------------- */
+@each $name, $color in $brand_colors {
+    .has-#{$name}-color {
+        color: $color;
+    }
+
+    .has-#{$name}-background-color {
+        background-color: $color;
+    }
+}

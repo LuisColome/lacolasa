@@ -1,0 +1,22 @@
+@use "abstracts" as *;
+
+/* Separator
+--------------------------------------------- */
+
+.wp-block-separator {
+    &.is-style-thick {
+        border-top: 8px solid;
+        border-bottom: 0;
+    }
+    &.is-style-default {
+        width: 49%;
+    }
+
+    &.is-aligned-left {
+        margin-left: 0;
+    }
+
+    &.is-aligned-right {
+        margin-right: 0;
+    }
+}

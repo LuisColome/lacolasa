@@ -1,0 +1,179 @@
+@use "abstracts" as *;
+@use "../vendor/include-media" as *;
+
+// Site Header
+
+/* Site Header
+---------------------------------------------------------------------------- */
+
+.site-header {
+    position: absolute;
+    top: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: $header-height;
+    background-color: white;
+    padding: 0 $wrap_edge;
+    // border-bottom: 1px solid var(--clr-grey-300);
+    @include transition;
+
+    &::before,
+    &::after {
+        // clean the flex-flow
+        content: none;
+    }
+
+    // A gradient shadow background for the transparent header (if needed)
+    // .first-block-align-full &::before {
+    //     content: "";
+    //     position: absolute;
+    //     display: block;
+    //     width: 100%;
+    //     height: 137px;
+    //     top: 0;
+    //     right: 0;
+    //     bottom: 0;
+    //     left: 0;
+    //     // background: rgba(33, 35, 36, 0.3);
+    //     // background: linear-gradient(
+    //     //     to bottom,
+    //     //     #0f0e0e -19%,
+    //     //     rgba(15, 14, 14, 0.5) 60%,
+    //     //     rgba(15, 14, 14, 0) 99%
+    //     // );
+    //     opacity: 0.45;
+    //     transition: opacity 0.1s ease-in-out;
+    //     z-index: 0;
+    // }
+
+    .first-block-align-full & {
+        // position: absolute;
+        // z-index: 9999;
+        background-color: transparent;
+    }
+
+    &.shrink {
+        position: fixed;
+        background-color: white;
+        height: 64px;
+        box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+        animation: fadein 0.5s;
+
+        &::before {
+            content: none;
+        }
+
+        .site-title a {
+            color: var(--clr-grey-900);
+        }
+
+        @include media("<=mobile_menu") {
+            position: absolute;
+        }
+    }
+
+    // &.shrink {
+    //     height: 60px;
+    //     box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+
+    //     .site-title a {
+    //     color: var(--clr-grey-900);
+    //     }
+    // }
+
+    .wrap {
+        width: 100%;
+        max-width: $grid-width;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        &::before,
+        &::after {
+            // clean the flex-flow
+            content: none;
+        }
+    }
+}
+
+/* Admin Bar
+--------------------------------------------- */
+
+@include media(">medium") {
+    .admin-bar {
+        .site-container {
+            margin-top: 32px;
+        }
+        .site-header {
+            top: 32px;
+        }
+    }
+}
+
+// We don't work from mobile, so hide it
+@include media("<=medium") {
+    #wpadminbar {
+        display: none !important;
+    }
+}
+
+/* Title Area
+  --------------------------------------------- */
+
+.title-area {
+    position: relative;
+    z-index: 9; // make the site title,visible when menu is active
+    padding: 0;
+    max-width: $logo-width;
+    @include transition;
+
+    // .wp-custom-logo .shrink & {
+    //     max-width: calc(#{$logo-width}/1.5);
+    // }
+}
+
+.site-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+    margin: 0;
+    overflow: hidden;
+
+    a {
+        display: block;
+        text-indent: -9999px;
+        text-decoration: none;
+        transition: none;
+
+        width: 189px;
+        height: 45px;
+    }
+
+    // .shrink & {
+    //     a {
+    //         width: 124px;
+    //         height: 40px;
+    //     }
+    // }
+
+    // Display the white logo on transparent header (.first-block-align-full)
+    .first-block-align-full .site-header:not(.shrink) & {
+        a {
+            background-image: url(../../images/isotype-white.svg) !important;
+            // background-size: cover;
+        }
+    }
+}
+
+.site-description,
+.wp-custom-logo .site-title {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}

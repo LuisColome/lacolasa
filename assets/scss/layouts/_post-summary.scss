@@ -1,0 +1,48 @@
+@use "abstracts" as *;
+@use "../vendor/include-media" as *;
+
+/* Post Summary
+---------------------------------------------------------------------------------------------------- */
+
+.post-summary {
+    margin-bottom: $grid-gap;
+}
+
+.post-summary__title {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 0;
+
+    a {
+        color: var(--clr-grey-100) 0;
+        text-decoration: none;
+
+        &:hover {
+            color: var(--clr-secondary-400);
+        }
+    }
+}
+
+.post-summary__image {
+    display: block;
+    @include media(">small") {
+        margin-bottom: 12px;
+    }
+}
+
+.entry-category {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+
+    a {
+        color: var(--clr-grey-800);
+        text-decoration: none;
+
+        &:hover {
+            color: var(--clr-secondary-400);
+        }
+    }
+}

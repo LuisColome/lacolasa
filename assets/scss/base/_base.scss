@@ -1,0 +1,28 @@
+@use "abstracts" as *;
+
+html,
+input[type="search"] {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+html {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    @include base-style();
+}
+
+// Prevent scrolling when the naviogation is activated.
+body.noscroll {
+    overflow: hidden;
+}

@@ -1,0 +1,195 @@
+@use "abstracts" as *;
+@use "../vendor/include-media" as *;
+
+/* Entry Meta
+----------------------------------------------------------------------------- */
+
+/* Entry header
+--------------------------------------------- */
+.entry-header {
+    .entry-time,
+    .entry-author,
+    // .entry-categories,
+    .entry-comments-link {
+        position: relative;
+        font-size: 16px;
+        padding-left: 1.75rem;
+        margin-right: 1.5em;
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            transform: translateY(-50%);
+            background: url(../../assets/icons/utility/calendar.svg) no-repeat
+                50% 50%;
+            background-size: cover;
+            width: 1.125rem;
+            height: 1.125rem;
+            margin-right: 0.5rem;
+        }
+    }
+
+    // .entry-categories {
+    //     &::before {
+    //         background: url(../../assets/icons/utility/folder.svg) no-repeat 50%
+    //             50%;
+    //         background-size: cover;
+    //     }
+    // }
+
+    .entry-author {
+        &::before {
+            background: url(../../assets/icons/utility/user.svg) no-repeat 50%
+                50%;
+            background-size: cover;
+        }
+    }
+
+    .entry-comments-link {
+        &::before {
+            background: url(../../assets/icons/utility/chat.svg) no-repeat 50%
+                50%;
+            background-size: cover;
+        }
+    }
+
+    // Alternative Categories style
+    .entry-categories {
+        a {
+            font-size: 1rem;
+            color: var(--clr-primary-400);
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+    }
+}
+
+/* Tags (entry footer)
+--------------------------------------------- */
+.entry-tags {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 4rem 0 2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--clr-grey-400);
+
+    a {
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 400;
+        padding: 0.25rem 1rem;
+        margin: 0 0.5rem 0.5rem 0;
+        background-color: transparent;
+        text-decoration: none;
+        color: var(--clr-font-400);
+        border-radius: $border-radius;
+        border: 1px solid var(--clr-font-400);
+        position: relative;
+
+        &:hover {
+            background-color: var(--clr-primary-400);
+            border-color: var(--clr-primary-400);
+            color: white;
+        }
+    }
+}
+
+/* Entry author
+--------------------------------------------- */
+// .entry-author {
+//     font-size: 14px;
+
+//     .avatar {
+//         border-radius: 50%;
+//         display: inline-block;
+//         vertical-align: middle;
+//         margin-right: 4px;
+//     }
+
+//     a {
+//         color: var(--clr-primary-400);
+//         text-decoration: none;
+
+//         &:hover {
+//             color: $highlight;
+//         }
+//     }
+// }
+
+/* Breadcrumbs
+--------------------------------------------- */
+.breadcrumb {
+    font-size: 16px;
+    margin-bottom: 24px;
+
+    a {
+        color: var(--clr-primary-400);
+
+        &:hover {
+            color: var(--clr-secondary-400);
+        }
+    }
+
+    .single & {
+        border-top: 1px solid var(--clr-grey-300);
+        padding-top: 32px;
+        text-align: center;
+    }
+}
+
+/* Author box
+--------------------------------------------- */
+.author-box {
+    position: relative;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+
+    @include media(">=small") {
+        // We define the width of the image column based on the avatar size set up in genesis-changes.php
+        grid-template-columns: 90px 1fr;
+        // grid-template-rows: repeat(3, 30px);
+    }
+
+    max-width: $content-width;
+    margin: 4rem 0 6rem 0;
+
+    // Clean the default content
+    &::before,
+    &:after {
+        content: none;
+    }
+
+    .avatar {
+        border-radius: $border-radius;
+        @include media(">=small") {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    .author-box-title {
+        font-size: clamp(1.6rem, 1.2rem + 1vw, 1.85rem);
+        margin: 0;
+        @include media(">=small") {
+            grid-column: 2 / 3;
+        }
+    }
+
+    .author-box-content {
+        margin: 0;
+        @include media(">=small") {
+            grid-column: 2 / 3;
+        }
+    }
+
+    // Box author from author archive pages.
+    .archive & {
+        margin: 4rem 0;
+    }
+}

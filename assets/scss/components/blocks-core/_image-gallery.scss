@@ -1,0 +1,43 @@
+@use "abstracts" as *;
+
+/* Image
+--------------------------------------------- */
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: $border-radius;
+
+    &.alignleft {
+        float: left;
+        margin: 0 $block-margin $block-margin 0;
+    }
+
+    &.alignright {
+        float: right;
+        margin: 0 0 $block-margin $block-margin;
+    }
+
+    &.aligncenter {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.wp-block-image figcaption {
+    color: var(--clr-grey-700);
+    text-align: left;
+    font-size: 14px;
+    font-style: normal;
+}
+
+/* Gutenberg Gallery
+--------------------------------------------- */
+.wp-block-gallery {
+    .wp-block-image:not(.is-style-rounded) {
+        img {
+            border-radius: $border-radius;
+        }
+    }
+}

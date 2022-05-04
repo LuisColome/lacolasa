@@ -1,0 +1,681 @@
+@use "abstracts" as *;
+@use "../vendor/include-media" as *;
+
+/* Navigation
+---------------------------------------------------------------------------------------------------- */
+
+.nav-menu {
+    // Reset line-height.
+    & > * {
+        line-height: 0;
+    }
+
+    // Reset styles for nav lists.
+    ul {
+        clear: both;
+        line-height: 1;
+        margin: 0;
+        padding-left: 0;
+        width: 100%;
+    }
+
+    // As a standard, give a display:flex to all menus.
+    .menu,
+    .sub-menu {
+        display: flex;
+        gap: var(--gap, 1rem);
+    }
+
+    // Menu item. General styles.
+    .menu-item {
+        list-style: none;
+        position: relative;
+
+        a {
+            border: none;
+            color: var(--clr-font-400);
+            display: block;
+            font-size: 16px;
+            font-weight: 400;
+            line-height: 1.2;
+            padding: 0.5em 1em;
+            // margin-right: .7em;
+            position: relative;
+            text-decoration: none;
+        }
+
+        // Last menu item with no margin right
+        &:last-child a {
+            margin-right: 0;
+        }
+
+        // Hover and focus effects for menu links. Both links and svg.
+        &:hover > a,
+        &:hover > .submenu-expand svg {
+            stroke: var(--clr-primary-400);
+            color: var(--clr-primary-400);
+        }
+
+        // Visual effetcs for current menu item if needed
+        // &.current-menu-item > a,
+        // &.current-menu-ancestor > a {
+        //     color: var(--clr-primary-400);
+        // }
+
+        // Underlined effect (on hover)
+        span {
+            display: inline-block;
+            text-decoration: none;
+            padding-top: 5px;
+
+            &::after {
+                content: "";
+                display: block;
+                height: 2px;
+                background: var(--clr-primary-400);
+                transform: scale(0, 1);
+                transition: transform ease-in-out 0.25s;
+                // transform-origin: left;
+                margin-top: 5px;
+            }
+        }
+
+        // Animation for the bottom bar on menu links.
+        a:hover,
+        a:focus {
+            span {
+                &::after {
+                    transform: scale(1, 1);
+                }
+            }
+        }
+
+        // Highlighted link on menu.
+        &.highlight {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            a {
+                border: 2px solid var(--clr-primary-400);
+                border-radius: $border-radius;
+                color: var(--clr-primary-400);
+                // margin-left: 0.5em;
+
+                @include media("<=mobile_menu") {
+                    text-align: center;
+                    margin-top: 1em;
+                    width: 100%;
+                }
+
+                &:hover,
+                &:focus {
+                    background-color: var(--clr-primary-400);
+                    color: white;
+                }
+
+                span {
+                    padding: 0;
+
+                    &::after {
+                        content: none;
+                    }
+                }
+            }
+        }
+    }
+
+    // Menu item with a children Sub-menu. Give space for the chevron arrow.
+    .menu {
+        > .menu-item-has-children {
+            > a {
+                margin-right: 0.7em;
+            }
+        }
+    }
+
+    // Chevron arrow on menu-item-has-children
+    .submenu-expand {
+        @include button-reset;
+        position: absolute;
+        line-height: 0;
+        top: 5px;
+        right: 0;
+        transform: none;
+        // @include icon-position(44px);
+
+        &.expanded {
+            & + .sub-menu {
+                display: block;
+            }
+        }
+
+        // Chevron arrow on desktop screens
+        @include media(">=mobile_menu") {
+            top: 50%;
+            transform: translateY(-50%);
+            right: 11px;
+            @include icon-position(14px);
+
+            &.expanded {
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    // Reverse menu colors for transparent background only on desktop. (first-block-align-ful class).
+    .first-block-align-full .site-header:not(.shrink) & {
+        @include media(">mobile_menu") {
+            .menu-item {
+                // Styles for menu links on transparent header
+                a {
+                    color: white;
+
+                    span {
+                        &::after {
+                            background: white;
+                        }
+                    }
+                }
+
+                // Styles for chevron arrows on transparent header
+                .submenu-expand svg {
+                    stroke: white;
+                }
+
+                // Hightlight menu link on transparent header
+                &.highlight {
+                    a {
+                        border-color: white;
+
+                        &:hover,
+                        &:focus {
+                            background-color: white;
+                            color: var(--clr-font-400);
+                        }
+                    }
+                }
+
+                // &:hover > a,
+                // &:hover .submenu-expand svg {
+                //     stroke: var(--clr-primary-400);
+                //     color: var(--clr-primary-400);
+                // }
+            }
+        }
+    }
+
+    .nav-secondary {
+        .menu-item.search {
+            @include media("<=mobile_menu") {
+                padding: 4px 16px 16px;
+            }
+            @include media(">mobile_menu") {
+                margin: 5px 0 0 8px;
+
+                .search-field {
+                    padding-top: 8px;
+                    padding-bottom: 8px;
+                    width: 268px;
+                }
+            }
+        }
+    }
+
+    .nav-primary {
+        .menu-item.search {
+            line-height: 0;
+
+            button {
+                padding: 12px;
+            }
+
+            // @include media("<=mobile_menu") {
+            // 	display: none;
+            // }
+        }
+    }
+
+    @include media(">mobile_menu") {
+        // width: calc( 100% - #{$menu_width} );
+        width: auto;
+        display: flex;
+        --gap: 0.25rem;
+        flex-flow: column-reverse nowrap;
+
+        .nav-primary,
+        .nav-secondary {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .nav-primary + .nav-secondary {
+            margin-bottom: 16px;
+        }
+
+        .menu-item {
+            &:hover {
+                & > .sub-menu {
+                    // left: auto;
+                    visibility: visible;
+                    opacity: 1;
+                    transform: translateY(0px);
+                    transition: all 0.25s ease-in-out;
+                }
+            }
+        }
+
+        .sub-menu {
+            flex-flow: column nowrap;
+            --gap: 0;
+            background: var(--clr-submenu-bg);
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            width: 215px;
+            // padding: 8px 0;
+            border-radius: 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 16%),
+                0 2px 8px rgba(0, 0, 0, 0.32);
+            z-index: 99;
+            transform: translateY(20px);
+            transition: all 0.2s ease-in-out;
+
+            .menu-item {
+                // Links on submenus.
+                a {
+                    color: white;
+                    font-size: 0.875rem; // 14px
+                    padding: 1rem;
+
+                    &:hover,
+                    &:focus {
+                        background-color: var(--clr-submenu-bg-hover);
+                    }
+
+                    span {
+                        padding: 0;
+                        &::after {
+                            content: none;
+                        }
+                    }
+                }
+
+                // Chevron arrow on submenu (menu-item-has-children).
+                .submenu-expand {
+                    right: 15px;
+                    transform: translateY(-50%) rotate(-90deg);
+                    svg {
+                        stroke: white;
+                    }
+                }
+            }
+
+            // Second level of submenu position
+            .sub-menu {
+                margin: -48px 0 0 215px;
+            }
+        }
+    }
+
+    // Mobile menu
+    @include media("<=mobile_menu") {
+        position: fixed;
+        width: min(90%, 600px);
+        height: 100%;
+        top: 0;
+        right: -100%;
+        background: var(--clr-mobile-menu-bg);
+        transition: all 0.35s cubic-bezier(0.65, 0.05, 0.36, 1);
+        padding: 105px $grid-gap 0;
+        overflow: auto;
+        z-index: 997;
+
+        &.active {
+            right: 0;
+            overflow: auto;
+        }
+
+        // make sure nav-primary takes all the space.
+        .nav-primary {
+            width: 100%;
+        }
+
+        // Menu items in column
+        .menu,
+        .sub-menu {
+            flex-flow: column nowrap;
+        }
+
+        // Menu and menu-item styles for Mobile
+        .menu {
+            padding: 0;
+            --gap: 0;
+
+            // Everything white.
+            .menu-item {
+                // No need margin-right on mobile menu
+                &.menu-item-has-children {
+                    a {
+                        margin-right: 0;
+                    }
+                }
+
+                // White links on mobile menu and no animations
+                a {
+                    color: white;
+                    border-bottom: 1px solid var(--clr-grey-100) 0;
+                    padding: 1rem 0;
+                    font-size: 1rem;
+
+                    span {
+                        padding-top: 0;
+                        &::after {
+                            content: none;
+                        }
+                    }
+                }
+
+                &.highlight {
+                    a {
+                        border: 1px solid white;
+                        color: white;
+                        margin: 2rem 0;
+                        max-width: 70%;
+
+                        &:hover {
+                            background-color: white;
+                            color: var(--clr-submenu-bg);
+                        }
+                    }
+                }
+
+                // Chevron arrow as a square block.
+                .submenu-expand {
+                    padding: 1.1rem 1.25rem;
+                    top: 0;
+                    border-left: 1px solid var(--clr-grey-100) 0;
+
+                    svg {
+                        stroke: white;
+                    }
+                }
+            }
+        }
+
+        // Submenu styles for Mobile.
+        .sub-menu {
+            display: none;
+            padding-left: 1rem;
+
+            & > .menu-item > a {
+                font-size: 15px;
+                line-height: 1.4;
+            }
+        }
+    }
+}
+
+/* Nav Header overlay layer
+--------------------------------------------- */
+
+.lcm-dark-overlay {
+    position: fixed;
+    width: 100%;
+    min-height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.77);
+    opacity: 0;
+    z-index: 996;
+    transition: opacity 0.3s ease-in-out;
+    pointer-events: none;
+
+    @include media(">mobile_menu") {
+        visibility: hidden;
+        display: none;
+    }
+
+    &.active {
+        opacity: 1;
+        pointer-events: visible;
+    }
+}
+
+/* Toggles
+--------------------------------------------- */
+
+.search-toggle {
+    @include button-reset;
+    line-height: 0;
+    text-align: center;
+    z-index: 999;
+
+    .close {
+        display: none;
+    }
+
+    &:hover,
+    &.active {
+        background: var(--clr-grey-300);
+    }
+
+    &.active {
+        .close {
+            display: inline;
+        }
+
+        .open {
+            display: none;
+        }
+    }
+}
+
+.site-header .wrap {
+    & > .search-toggle {
+        // position: absolute;
+        // top: 0;
+        width: 26px;
+        height: 18px;
+
+        @include media(">mobile_menu") {
+            display: none; // Only display the toggle menu on mobile.
+        }
+    }
+
+    // & > .menu-toggle {
+    // 	left: 0; // no effect with the father display flex.
+    // }
+
+    & > .search-toggle {
+        right: 0;
+    }
+}
+
+/* Header Search
+--------------------------------------------- */
+
+.header-search {
+    background: var(--clr-grey-300);
+    overflow: hidden;
+    padding: 16px;
+    width: 100%;
+
+    @include media(">=tablet") {
+        position: absolute;
+        bottom: -82px;
+        right: 0;
+
+        .search-form {
+            margin: 0 auto;
+        }
+    }
+
+    @include media("<=mobile_menu") {
+        margin: 0 -48px;
+        width: calc(100% + 96px);
+    }
+
+    &:not(.active) {
+        display: none;
+    }
+}
+
+/* Toggles
+--------------------------------------------- */
+
+// .search-toggle,  // no search box for WhiteRiverManor
+.menu-toggle {
+    @include button-reset;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    line-height: 0;
+    text-align: center;
+    order: 3;
+    z-index: 9999;
+    transition: transform 0.35s ease-in-out;
+
+    @include media(">mobile_menu") {
+        display: none; // Only display the toggle menu on mobile.
+    }
+
+    // Display Toggle menu when scroll down on mobile.
+    @include media("<=mobile_menu") {
+        .shrink & {
+            position: fixed;
+            top: 0;
+            right: 1rem;
+            width: 3rem;
+            height: 3rem;
+            border-radius: 4rem;
+            line-height: 0;
+            text-align: center;
+            background-color: var(--clr-toggle-menu-bg);
+            box-shadow: 0px 8px 20px -4px rgba(0, 0, 0, 0.48);
+            transform: translateY(1rem);
+            transition: background-color 0.3s ease-in-out;
+        }
+    }
+
+    .menu-toggle__inner-container {
+        position: relative;
+        display: block;
+        width: 24px;
+        height: 19px;
+    }
+
+    .toggl__bar {
+        display: block;
+        position: absolute;
+        height: 3px;
+        width: 100%;
+        background: var(--clr-toggle-menu-bars);
+        border-radius: 2em;
+        opacity: 1;
+        right: 0;
+        transform: rotate(0deg);
+        transform-origin: center center;
+        transition: all 0.35s ease-in-out;
+
+        &.first {
+            top: 0px;
+        }
+
+        &.second {
+            top: 8px;
+            transition-delay: 100ms;
+        }
+
+        &.third {
+            top: 16px;
+            transition-delay: 100ms;
+        }
+    }
+
+    // togll__bar color when header is transparent.
+    .first-block-align-full .site-header:not(.shrink) & {
+        .toggl__bar {
+            background: white;
+        }
+
+        &.active {
+            .toggl__bar {
+                background: var(--clr-toggle-menu-bars-active);
+            }
+        }
+    }
+
+    // Toggl__bar color, on hover and active.
+    &:hover,
+    &.active {
+        .toggl__bar {
+            background: var(--clr-toggle-menu-bars-active);
+        }
+    }
+
+    &.active {
+        background-color: transparent; // prevent button defaults
+        .toggl__bar {
+            height: 3px;
+            &.first {
+                transform: rotate(135deg);
+                left: 0px;
+                top: 8px;
+            }
+            &.second {
+                transform: rotate(45deg);
+            }
+            &.third {
+                transform: rotate(135deg);
+                top: 8px;
+                left: 0px;
+                opacity: 0;
+            }
+        }
+    }
+}
+
+/* Secondary Navigation
+---------------------------------------------------------------------------------------------------- */
+.site-footer {
+    &__nav-menu {
+        // Reset line-height.
+        & > * {
+            line-height: 0;
+        }
+
+        // Reset styles for nav lists.
+        ul {
+            clear: both;
+            line-height: 1;
+            margin: 0;
+            padding-left: 0;
+            width: 100%;
+        }
+
+        // As a standard, give a display:flex to all menus.
+        .menu {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+            gap: var(--gap, 2rem);
+            list-style: none;
+        }
+
+        // Menu item. General styles.
+        .menu-item {
+            position: relative;
+
+            a {
+                text-decoration: none;
+            }
+        }
+    }
+}

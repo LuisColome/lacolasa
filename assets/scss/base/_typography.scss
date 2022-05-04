@@ -1,0 +1,254 @@
+@use "abstracts" as *;
+
+/* Typographical Elements - General styles
+--------------------------------------------- */
+
+button,
+input:focus,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+textarea:focus,
+.button,
+.gallery img {
+    transition: all 0.2s ease-in-out;
+}
+
+a {
+    color: var(--clr-primary-400);
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: var(--clr-secondary-400);
+    @include transition;
+
+    &:hover {
+        color: $grey-7;
+    }
+
+    svg {
+        @include transition;
+    }
+}
+
+// ol,
+// ul {
+//     // margin: 0;
+//     // padding: 0;
+// }
+
+hr {
+    border: 0;
+    border-collapse: collapse;
+    border-bottom: 1px solid currentColor;
+    clear: both;
+    color: var(--clr-grey-300);
+    margin: 1.65em auto;
+}
+
+strong {
+    font-weight: 700;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+.clearfix {
+    @include clearfix;
+}
+
+/* Paragraph and Gutenberg font sizes
+--------------------------------------------- */
+
+p {
+    margin: 0 0 1.5rem;
+    padding: 0;
+}
+
+// Add !important to override Gutenberg styles.
+.has-small-font-size {
+    font-size: 1rem !important;
+}
+
+.has-normal-font-size {
+    font-size: 1.125rem !important; // Value in accordance with Base-style mixins
+}
+
+.has-large-font-size {
+    font-size: 1.5rem !important;
+}
+
+.has-huge-font-size {
+    font-size: 1.75rem !important;
+}
+
+/* Spacing and shadow for Gutenberg paragraphs
+---------------------------------------------------- */
+.site-container {
+    p {
+        &.has-background {
+            padding: $base-margin $margin_2x;
+        }
+        &.has-box-shadow {
+            padding: $base-margin $margin_2x;
+            box-shadow: 1px 3px 15px rgba(0, 0, 0, 0.4);
+        }
+    }
+}
+
+/* Headings
+--------------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--clr-headings-400);
+    font-family: $heading-font, $sans-serif;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 $margin_2x 0;
+    scroll-margin-top: 5rem; // for the header to not hide the title on anchor links. https://css-tricks.com/fixed-headers-and-jump-links-the-solution-is-scroll-margin-top/
+
+    .entry-content > & {
+        margin-top: $margin_2x;
+    }
+
+    &.entry-title,
+    &.archive-title {
+        margin-top: 0;
+    }
+
+    a {
+        color: var(--clr-font-400);
+
+        &:hover {
+            color: var(--clr-primary-400);
+            text-decoration: none;
+        }
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+h1 {
+    // @include font-sizes(34px, 48px, 42px);
+    font-size: clamp(2.2rem, 1.35rem + 2.65vw, 3rem);
+}
+
+h2 {
+    // @include font-sizes(26px, 32px, 36px);
+    font-size: clamp(1.9rem, 1.4rem + 2vw, 2.6rem);
+}
+
+h3 {
+    // @include font-sizes(22px, 26px, 28px);
+    font-size: clamp(1.6rem, 1.2rem + 1vw, 1.85rem);
+}
+
+h4 {
+    // @include font-sizes(20px, 24px, 26px);
+    font-size: clamp(1.4rem, 1.1rem + 0.8vw, 1.7rem);
+}
+
+h5 {
+    // @include font-sizes(18px, 22px);
+    font-size: clamp(1.1rem, 1rem + 0.7vw, 1.4rem);
+}
+
+h6 {
+    font-size: clamp(1.05rem, 1rem + 0.5vw, 1.25rem);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Lists
+--------------------------------------------- */
+.entry-content > *,
+.block-editor > * {
+    // Common lists
+    ul,
+    ol {
+        padding-left: 2.5rem;
+        margin: $block-margin 0;
+
+        li {
+            // padding-bottom: .5rem;
+
+            &:last-child {
+                padding-bottom: 0;
+            }
+
+            ul,
+            ol {
+                padding-top: 0.5rem;
+            }
+        }
+
+        // Clear list styles on lists they don't need them.
+        &.wp-block-gallery,
+        &.blocks-gallery-grid,
+        &.wp-block-social-links {
+            padding-left: 0;
+
+            li {
+                padding-bottom: 0;
+            }
+        }
+    }
+
+    // Custom checked list
+    ul.checked-list {
+        list-style: none;
+
+        li {
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                top: 2px;
+                right: 0;
+                bottom: 0;
+                left: -26px;
+                width: 24px;
+                height: 24px;
+                background: url(../icons/utility/check.svg) no-repeat;
+                background-size: cover;
+            }
+        }
+    }
+}
+
+/* Objects
+--------------------------------------------- */
+
+embed,
+iframe,
+img,
+object,
+video,
+.wp-caption {
+    max-width: 100%;
+}
+
+img {
+    height: auto;
+    vertical-align: top;
+}
+
+figure {
+    margin: 0;
+}
+
+/* Custom classes
+--------------------------------------------- */
+
+.nmb {
+    margin-bottom: 0 !important;
+}
