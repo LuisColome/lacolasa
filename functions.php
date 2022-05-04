@@ -58,7 +58,7 @@ add_action( 'enqueue_block_editor_assets', 'ea_gutenberg_scripts' );
 *
 */
 function lcm_theme_fonts_url() {
-	return 'https://fonts.googleapis.com/css2?family=Fira+Sans+Condensed:wght@400;600&display=swap';
+	return 'https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,300&family=Solway:wght@500;700&display=swap';
 }
 
 function ea_child_theme_setup() {
