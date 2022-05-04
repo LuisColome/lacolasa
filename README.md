@@ -2,7 +2,7 @@
 
 [![LaColasa Genesis Starter Theme v1.2.1 badge][changelog-badge]][changelog] [![Version 1.2.1 Badge][version-badge]][changelog] [![Last commit badge][last-commit]][last-commit-link]
 
-![LaColasa Screenshot](screenshot.png)
+![LaColasa Screenshot](images/logo.png)
 
 ## Author:
 
