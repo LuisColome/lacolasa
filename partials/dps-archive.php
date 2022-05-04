@@ -2,7 +2,7 @@
 /**
  * "Archive" layout (matches blog archive layout) for Display Posts Shortcode
  *
- * @package      TheDock
+ * @package      LaColasa
  * @author       Luis Colome
  * @since        0.9.7
  * @license      GPL-2.0+

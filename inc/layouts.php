@@ -2,7 +2,7 @@
 /**
  * Layouts
  *
- * @package      TheDock
+ * @package      LaColasa
  * @author       Bill Erickson
  * @since        1.0.0
  * @license      GPL-2.0+
@@ -16,7 +16,7 @@ genesis_unregister_layout( 'sidebar-sidebar-content' );
 //genesis_unregister_layout( 'content-sidebar' );
 
 // Add new layouts
-genesis_register_layout( 'content-width', [ 'label' => __( 'Content Width', 'ea_genesis_child' ), ] );
+genesis_register_layout( 'content-width', [ 'label' => __( 'Content Width', 'la_colasa' ), ] );
 
 /**
  * Function to forze the layout.
