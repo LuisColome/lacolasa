@@ -16,13 +16,13 @@ textarea:focus,
 
 a {
     color: var(--clr-primary-400);
-    font-weight: 600;
+    font-weight: 700;
     text-decoration: underline;
     text-decoration-color: var(--clr-secondary-400);
     @include transition;
 
     &:hover {
-        color: $grey-7;
+        text-decoration: none;
     }
 
     svg {
@@ -108,7 +108,7 @@ h5,
 h6 {
     color: var(--clr-headings-400);
     font-family: $heading-font, $sans-serif;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.2;
     margin: 0 0 $margin_2x 0;
     scroll-margin-top: 5rem; // for the header to not hide the title on anchor links. https://css-tricks.com/fixed-headers-and-jump-links-the-solution-is-scroll-margin-top/
