@@ -14,12 +14,10 @@ $black: hsl(0, 0%, 0%);
 
 // Brand Colors - Needed for buttons, paragraphs colors and backgrounds in Gutenberg.
 $brand_colors: (
-    orange: hsl(24, 75%, 50%),
-    light-orange: hsl(12, 62%, 66%),
-    red: hsl(359, 62%, 50%),
-    grey: hsl(230, 30%, 96%),
-    dark-grey: hsl(0, 0%, 38%),
-    orange-grey: hsl(42, 15%, 13%),
+    pink: hsl(333, 77%, 67%),
+    blue: hsl(200, 57%, 51%),
+    light-pink: hsl(333, 77%, 93%),
+    light-grey: hsl(230, 30%, 96%),
     black: hsl(214, 28%, 5%),
     white: hsl(0, 0%, 100%),
 );
@@ -28,15 +26,12 @@ $brand_colors: (
 $colors: (
     //
     // Mains colors
-    primary-300: hsl(24, 75%, 60%),
-    primary-400: hsl(24, 75%, 50%),
-    primary-500: hsl(24, 75%, 46%),
-    secondary-300: hsl(12, 62%, 80%),
-    secondary-400: hsl(12, 62%, 66%),
-    secondary-500: hsl(12, 62%, 50%),
-    // tertiary-300: hsl(359, 62%, 60%),
-    // tertiary-400: hsl(359, 62%, 50%),
-    // tertiary-500: hsl(359, 62%, 40%),
+    primary-300: hsl(333, 77%, 80%),
+    primary-400: hsl(333, 77%, 67%),
+    primary-500: hsl(333, 77%, 55%),
+    secondary-300: hsl(200, 57%, 62%),
+    secondary-400: hsl(200, 57%, 51%),
+    secondary-500: hsl(200, 57%, 40%),
     //
     // Greys
     grey-100: hsl(0, 0%, 95%),
@@ -51,7 +46,7 @@ $colors: (
     //
     // Font and utility colors
     font-400: hsl(40, 13%, 23%),
-    headings-400: hsl(40, 13%, 23%),
+    headings-400: hsl(198, 10%, 19%),
     border-400: hsl(0, 0%, 88%),
     //
     // Menu color variables
@@ -63,12 +58,12 @@ $colors: (
     toggle-menu-bg: white,
     // toggle-menu-bg-active: white,
     toggle-menu-bars: hsl(40, 13%, 23%),
-    toggle-menu-bars-active: hsl(24, 75%, 50%),
+    toggle-menu-bars-active: hsl(333, 77%, 67%),
     //
     // Buttons
-    button-bg-300: hsl(24, 75%, 60%),
-    button-bg-400: hsl(24, 75%, 50%),
-    button-bg-500: hsl(24, 75%, 40%),
+    button-bg-300: hsl(333, 77%, 80%),
+    button-bg-400: hsl(333, 77%, 67%),
+    button-bg-500: hsl(333, 77%, 55%),
     button-border-300: hsl(24, 75%, 60%),
     button-border-400: hsl(24, 75%, 50%),
     button-border-500: hsl(24, 75%, 40%),
