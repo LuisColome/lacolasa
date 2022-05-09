@@ -1,12 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  
-<g transform="matrix(2.2857142857142856,0,0,2.2857142857142856,0,0)"><g>
-    <path d="M1.5,2.5a1,1,0,0,0-1,1v9a1,1,0,0,0,1,1h11a1,1,0,0,0,1-1v-9a1,1,0,0,0-1-1h-2" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"></path>
-    <line x1="3.5" y1="0.5" x2="3.5" y2="4.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"></line>
-    <line x1="10.5" y1="0.5" x2="10.5" y2="4.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"></line>
-    <line x1="3.5" y1="2.5" x2="8.5" y2="2.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"></line>
-    <circle cx="3.5" cy="7.5" r="0.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"></circle>
-    <circle cx="7" cy="7.5" r="0.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"></circle>
-    <circle cx="10.5" cy="7.5" r="0.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"></circle>
-    <circle cx="3.5" cy="10.5" r="0.5" style="fill: none;stroke: #000000;stroke-linecap: round;stroke-linejoin: round"></circle>
-  </g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgba(66, 59, 51, 1);transform: ;msFilter:;"><path d="M11 12h6v6h-6z"></path><path d="M19 4h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2zm.001 16H5V8h14l.001 12z"></path></svg>
