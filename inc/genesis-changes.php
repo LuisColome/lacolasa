@@ -179,6 +179,10 @@ function genesis_sample_blocks_body_classes( $classes ) {
 		$classes[] = 'first-block-align-full';
 	}
 
+    if ( $blocks[0]['attrs']['align'] === 'wide' ) {
+		$classes[] = 'first-block-align-wide';
+	}
+
 	return $classes;
 
 }

@@ -65,6 +65,7 @@ add_filter( 'body_class', 'ea_singular_body_class' );
 		'landing-page',
         'wp-custom-logo',
         'first-block-cover-full',
+        'first-block-align-wide',
         'first-block-align-full',
 	];
 

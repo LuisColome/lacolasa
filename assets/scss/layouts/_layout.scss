@@ -40,6 +40,10 @@
     .first-block-cover-full & {
         padding-top: 0;
     }
+
+    .first-block-align-wide & {
+        padding-top: $header-height;
+    }
 }
 
 .content-sidebar,
