@@ -1,6 +1,6 @@
 # LaColasa - Genesis Starter Child Theme
 
-[![LaColasa Genesis Starter Theme v1.2.1 badge][changelog-badge]][changelog] [![Version 1.2.1 Badge][version-badge]][changelog] [![Last commit badge][last-commit]][last-commit-link]
+[![LaColasa Genesis Starter Theme v0.3.0 badge][changelog-badge]][changelog] [![Version 0.3.0 Badge][version-badge]][changelog] [![Last commit badge][last-commit]][last-commit-link]
 
 ![LaColasa Screenshot](/images/logo.png)
 
@@ -40,7 +40,7 @@ Without these projects, this WordPress Genesis Starter Child Theme wouldn't be w
 -   [Eduardo Boucas' Include Media Queries](https://eduardoboucas.github.io/include-media/)
 
 [changelog]: ./CHANGELOG.md
-[changelog-badge]: https://img.shields.io/badge/Changelog-La%20Colasa%20Genesis%20Starter%20Theme%20v1.2.1-orange
-[version-badge]: https://img.shields.io/badge/version-1.2.1-informational.svg
+[changelog-badge]: https://img.shields.io/badge/Changelog-La%20Colasa%20Genesis%20Starter%20Theme%20v0.3.0-orange
+[version-badge]: https://img.shields.io/badge/version-0.3.0-informational.svg
 [last-commit]: https://img.shields.io/github/last-commit/luiscolome/lacolasa/develop?color=yellow&logoColor=red
 [last-commit-link]: https://github.com/LuisColome/lacolasa/commit/develop
