@@ -256,7 +256,7 @@ template {
   --clr-grey-900: #262626;
   --clr-font-400: #423d33;
   --clr-headings-400: #2c3235;
-  --clr-border-400: #e0e0e0;
+  --clr-border-400: #ededed;
   --clr-submenu-bg: #26231c;
   --clr-submenu-bg-hover: #433e32;
   --clr-mobile-menu-bg: #090c10;
@@ -1170,7 +1170,7 @@ table {
   padding: calc(5% + 10px) 5%;
   margin: 2rem auto;
   border: 2px solid var(--clr-grey-300);
-  border-radius: 10px;
+  border-radius: 1rem;
   text-align: left;
 }
 .entry-content .wp-block-quote blockquote,
@@ -1272,7 +1272,7 @@ table {
   padding: 1.5rem;
   margin-bottom: 16px;
   background-color: var(--clr-grey-300);
-  border-radius: 10px;
+  border-radius: 1rem;
   overflow: auto;
   white-space: nowrap;
 }
@@ -1513,7 +1513,7 @@ table {
 }
 .entry-content > *.wp-block-cover.is-border-radius .wp-block-cover__gradient-background,
 .block-area > *.wp-block-cover.is-border-radius .wp-block-cover__gradient-background {
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 .entry-content > *.wp-block-cover img.wp-block-cover__image-background,
 .block-area > *.wp-block-cover img.wp-block-cover__image-background {
@@ -1561,11 +1561,11 @@ table {
 }
 .entry-content .wp-block-media-text .wp-block-media-text__media img,
 .block-area .wp-block-media-text .wp-block-media-text__media img {
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 .entry-content .wp-block-media-text.is-image-fill .wp-block-media-text__media,
 .block-area .wp-block-media-text.is-image-fill .wp-block-media-text__media {
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 
 /* Image
@@ -1574,7 +1574,7 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 img.alignleft {
   float: left;
@@ -1599,7 +1599,7 @@ img.aligncenter {
 /* Gutenberg Gallery
 --------------------------------------------- */
 .wp-block-gallery .wp-block-image:not(.is-style-rounded) img {
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 
 /* Separator
@@ -1699,12 +1699,12 @@ img.aligncenter {
   border: none;
   color: white;
   background-color: var(--clr-primary-400);
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 .lcm-cf7-form .lcm-cf7-form__input input:hover {
   background-color: var(--clr-secondary-400);
 }
 .lcm-cf7-form input {
-  border-radius: 10px;
+  border-radius: 1rem;
 }
 /*# sourceMappingURL=editor-style.css.map */

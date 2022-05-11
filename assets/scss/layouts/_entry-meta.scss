@@ -59,11 +59,15 @@
 
     // Alternative Categories style
     .entry-categories {
+        margin-block-end: 2rem;
+
         a {
-            font-size: 1rem;
+            font-size: 0.85rem;
             color: var(--clr-primary-400);
-            text-transform: uppercase;
             text-decoration: none;
+            padding: 0.2rem 1rem;
+            border-radius: 99px;
+            background-color: var(--clr-light-pink);
         }
     }
 }
