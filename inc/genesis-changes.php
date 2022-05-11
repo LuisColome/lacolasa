@@ -214,7 +214,7 @@ function featured_post_image() {
             the_post_thumbnail('lcm-featured-image');
         echo '</figure>';
 }
-add_action( 'genesis_entry_header', 'featured_post_image', 4 );
+add_action( 'genesis_entry_header', 'featured_post_image', 13 );
 
 
 /**
