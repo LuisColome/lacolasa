@@ -6,8 +6,8 @@
 
 // Base
 @use "base/reset";
-@use "base/base";
-@use "base/typography";
+// @use "base/base";
+// @use "base/typography";
 @use "base/color-options";
 
 // Editor layous
@@ -32,6 +32,6 @@
 @use "components/blocks-core/tables";
 
 // -- Blocks Plugins
-@use "components/blocks-plugins/cf7";
+// @use "components/blocks-plugins/cf7";
 
 @use "vendor/include-media";
