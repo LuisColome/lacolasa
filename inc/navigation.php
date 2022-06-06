@@ -43,7 +43,7 @@ function lcm_footer_menu() {
     echo '<div class="site-footer__nav-wrapper">';
 
         echo '<figure class="site-footer__logo">';
-            echo '<a href="' . get_bloginfo('url') . '"><img class="site-footer__logo__img" src="'. get_stylesheet_directory_uri() . '/assets/images/logo-footer.svg"></a>';
+            echo '<a href="' . get_bloginfo('url') . '"><img class="site-footer__logo__img" src="'. get_stylesheet_directory_uri() . '/assets/images/logo.png"></a>';
         echo '</figure>';
 
         echo '<nav class="site-footer__nav-menu" role="navigation">';
@@ -124,7 +124,7 @@ function ea_nav_add_dropdown_icons( $output, $item, $depth, $args ) {
 	if ( in_array( 'menu-item-has-children', $item->classes, true ) ) {
 
 		// Add SVG icon to parent items.
-		$icon = ea_icon( array( 'icon' => 'chevron-bottom', 'size' => 16, 'title' => 'Submenu Dropdown' ) );
+		$icon = ea_icon( array( 'icon' => 'chevron-bottom', 'size' => 20, 'title' => 'Submenu Dropdown' ) );
 
 		$output .= sprintf(
 			'<button' . ea_amp_nav_dropdown( $args->theme_location, $depth ) . ' tabindex="-1">%s</button>',

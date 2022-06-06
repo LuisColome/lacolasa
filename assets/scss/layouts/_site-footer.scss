@@ -7,7 +7,7 @@
 ---------------------------------------------------------------------------------------------------- */
 
 .footer-widgets {
-    background: var(--clr-grey-800);
+    background-color: var(--clr-light-grey);
     padding: 40px $wrap_edge 10px;
     position: relative;
     color: white;
@@ -89,8 +89,8 @@
 ---------------------------------------------------------------------------------------------------- */
 
 .site-footer {
-    background: var(--clr-submenu-bg);
-    color: var(--clr-grey-200);
+    background-color: var(--clr-light-grey);
+    color: var(--clr-font-400);
     font-size: 1rem;
     padding: 2rem 0;
     // text-align: center;
@@ -103,7 +103,7 @@
 
     a {
         text-decoration: underline;
-        color: var(--clr-grey-200);
+        color: var(--clr-font-400);
         font-weight: 400;
 
         &:hover {
@@ -139,7 +139,7 @@
     /** Footer creds border top
     ---------------------------------------------- */
     &__creds-wrapper {
-        border-top: 1px solid var(--clr-grey-200);
+        border-top: 1px solid var(--clr-grey-400);
         --gap: 1rem;
     }
 
@@ -149,7 +149,13 @@
         // Social icons colors
         &__link {
             svg {
-                fill: var(--clr-grey-200);
+                fill: var(--clr-font-400);
+            }
+
+            &:hover {
+                svg {
+                    fill: var(--clr-primary-400);
+                }
             }
         }
     }

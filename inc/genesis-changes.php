@@ -117,6 +117,19 @@ add_filter( 'get_the_author_genesis_author_box_single', '__return_true' );
 //* Display author box on archive pages
 add_filter( 'get_the_author_genesis_author_box_archive', '__return_true' );
 
+/**
+ *  Customize the author box title
+ * 
+ */
+function custom_author_box_title() {
+
+    $author_name = get_the_author_meta( 'display_name' );
+    
+    $author_title = '<span>Esrcito por '. $author_name .'</span>';
+    
+}
+add_filter( 'genesis_author_box_title', 'custom_author_box_title' );
+
 
 /**
  * Modifies size of the Gravatar in the author box.

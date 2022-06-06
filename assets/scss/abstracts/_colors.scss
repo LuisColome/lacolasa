@@ -35,8 +35,8 @@ $colors: (
     //
     // Greys
     grey-100: hsl(0, 0%, 95%),
-    grey-200: hsl(0, 0%, 90%),
-    grey-300: hsl(0, 0%, 93%),
+    grey-200: hsl(0, 0%, 93%),
+    grey-300: hsl(0, 0%, 90%),
     grey-400: hsl(0, 0%, 88%),
     grey-500: hsl(0, 0%, 74%),
     grey-600: hsl(0, 0%, 62%),
@@ -50,15 +50,15 @@ $colors: (
     border-400: hsl(0, 0%, 93%),
     //
     // Menu color variables
-    submenu-bg: hsl(42, 15%, 13%),
-    submenu-bg-hover: hsl(42, 15%, 23%),
+    submenu-bg: hsl(0, 0%, 100%),
+    submenu-bg-hover: hsl(0, 0%, 95%),
     mobile-menu-bg: hsl(214, 28%, 5%),
     //
     // Toggle menu
-    toggle-menu-bg: white,
-    // toggle-menu-bg-active: white,
-    toggle-menu-bars: hsl(40, 13%, 23%),
-    toggle-menu-bars-active: hsl(333, 77%, 67%),
+    toggle-menu-bg: hsl(333, 77%, 67%),
+    toggle-menu-bg-active: hsl(333, 77%, 67%),
+    toggle-menu-bars: white,
+    toggle-menu-bars-active: white,
     //
     // Buttons
     button-bg-300: hsl(333, 77%, 80%),
@@ -76,61 +76,3 @@ $colors: (
     linkedin: hsl(199, 85%, 36%),
     instagram: hsl(276, 51%, 47%)
 );
-
-// General color variables
-// $clr-primary-300: hsl(24, 75%, 60%);
-// $clr-primary-400: hsl(24, 75%, 50%);
-// $clr-primary-500: hsl(24, 75%, 40%);
-// $clr-secondary-300: hsl(12, 62%, 80%);
-// $clr-secondary-400: hsl(12, 62%, 66%);
-// $clr-secondary-500: hsl(12, 62%, 50%);
-// $clr-highlight-400: hsl(359, 62%, 50%);
-// $clr-font-400: hsl(40, 13%, 23%);
-// $clr-border-400: $grey_4;
-
-// Menu color variables
-// $clr-submenu-bg: hsl(42, 15%, 13%);
-// $clr-submenu-bg-hover: hsl(42, 15%, 23%);
-// $clr-mobile-menu-bg: hsl(214, 28%, 5%);
-
-// $clr-toggle-menu-bg: white;
-// $clr-toggle-menu-bars: $clr-font-400;
-// $clr-toggle-menu-bars-active: $clr-primary-400;
-
-// Social color variables
-// $clr-facebook: hsl(221, 44%, 41%);
-// $clr-twitter: hsl(195, 100%, 47%);
-// $clr-pinterest: hsl(358, 73%, 46%);
-
-/**
- * Brand Color
- * 
- * Use: brand-color( 'blue', 'darken' );
- * The color has to be declare in the variable $brandcolors in base.scss
- *
- *  https://github.com/billerickson/EA-Genesis-Child/blob/master/assets/scss/modules/_brand-color.scss
- *
- */
-// @function brand-color($key, $variant: null) {
-//     @if map-has-key($brand_colors, $key) {
-//         $color: map-get($brand_colors, $key);
-//         @if ("lighten" == $variant) {
-//             $lighten_key: $key + "_lighten";
-//             @if map-has-key($brand_colors, $lighten_key) {
-//                 $color: #{map-get($brand_colors, $lighten_key)};
-//             } @else {
-//                 $color: lighten($color, 10%);
-//             }
-//         } @else if("darken" == $variant) {
-//             $darken_key: $key + "_darken";
-//             @if map-has-key($brand_colors, $darken_key) {
-//                 $color: #{map-get($brand_colors, $darken_key)};
-//             } @else {
-//                 $color: darken($color, 10%);
-//             }
-//         }
-//         @return $color;
-//     } @else {
-//         @error "The #{$key} color could not be found in $brand_colors";
-//     }
-// }

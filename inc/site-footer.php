@@ -24,7 +24,7 @@ function lcm_site_footer() {
         echo '</div>';
 
         echo '<div class="site-footer__creds">';
-            echo '<p class="site-footer__copyright">&copy; ' . date( 'Y' ) . ' <a href="' . get_bloginfo('url') . '" class="site-footer__link">' . get_bloginfo( 'name' ) . '</a> - WordPress Theme by <a href="htpps://Luiscolome.com/" class="site-footer__link">Luis Colomé</a></p>';
+            echo '<p class="site-footer__copyright">&copy; ' . date( 'Y' ) . ' <a href="' . get_bloginfo('url') . '" class="site-footer__link">' . get_bloginfo( 'name' ) . '</a> - WordPress site by <a href="htpps://luiscolome.com/" class="site-footer__link">Luis Colomé</a></p>';
         echo '</div>';
 
 	echo '</div>';
