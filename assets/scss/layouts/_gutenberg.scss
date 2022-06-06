@@ -1,31 +1,45 @@
 @use "abstracts" as *;
 
-body {
+.editor-styles-wrapper {
     @include base-style();
 }
 
+.editor-styles-wrapper {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--clr-headings-400);
+        font-family: $heading-font, $sans-serif;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0 0 $margin_2x 0;
+    }
+}
+
 p {
+    margin: 0 0 1.5rem;
+    padding: 0;
     overflow-x: initial;
 }
 
-/* Post title width */
-.editor-post-title__block.wp-block {
-    max-width: $grid-width;
-
-    /* Post title styling */
-    // .editor-post-title__input {
-    // }
+// Add !important to override Gutenberg styles.
+.has-small-font-size {
+    font-size: 1rem !important;
 }
 
-/* Main column width */
-.wp-block {
-    max-width: $content-width;
+.has-normal-font-size {
+    font-size: 1.125rem !important; // Value in accordance with Base-style mixins
+}
 
-    /* Wide column width */
-    &[data-align="wide"],
-    &[data-align="full"] {
-        max-width: none;
-    }
+.has-large-font-size {
+    font-size: 1.5rem !important;
+}
+
+.has-huge-font-size {
+    font-size: 1.75rem !important;
 }
 
 // Undo blockquote styles
