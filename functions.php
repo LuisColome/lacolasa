@@ -50,6 +50,7 @@ add_action( 'wp_enqueue_scripts', 'lcm_global_enqueues' );
 function ea_gutenberg_scripts() {
 	wp_enqueue_style( 'lcm-fonts', lcm_theme_fonts_url() );
 	//wp_enqueue_script( 'ea-editor', get_stylesheet_directory_uri() . '/assets/js/editor.js', array( 'wp-blocks', 'wp-dom' ), filemtime( get_stylesheet_directory() . '/assets/js/editor.js' ), true );
+    wp_enqueue_style( 'lcm-editor-style', get_stylesheet_directory_uri() . "/assets/css/editor-style.css", false, '1.0', 'all' );
 }
 add_action( 'enqueue_block_editor_assets', 'ea_gutenberg_scripts' );
 
@@ -87,8 +88,7 @@ function ea_child_theme_setup() {
 
 	// Editor Styles
 	add_theme_support( 'editor-styles' );
-	// add_editor_style( '/inc/gutenberg/style-editor.css' );
-	add_editor_style( '/assets/css/editor-style.css' );
+	// add_editor_style( 'assets/css/editor-style.css' );
 
 	// Remove image sizes
 	remove_image_size( '1536x1536' );
@@ -160,39 +160,29 @@ function ea_child_theme_setup() {
 	// -- Editor Color Palette
 	add_theme_support( 'editor-color-palette', array(
 		array(
-			'name'  => __( 'Orange', 'la_colasa' ),
-			'slug'  => 'orange',
-			'color'	=> '#dd6b20',
+			'name'  => __( 'Pink', 'la_colasa' ),
+			'slug'  => 'pink',
+			'color'	=> '#ec6ca5',
 		),
 		array(
-			'name'  => __( 'Light Orange', 'la_colasa' ),
-			'slug'  => 'light-orange',
-			'color'	=> '#de8974',
+			'name'  => __( 'Blue', 'la_colasa' ),
+			'slug'  => 'blue',
+			'color' => '#3b9bca',
 		),
 		array(
-			'name'  => __( 'Red', 'la_colasa' ),
-			'slug'  => 'red',
-			'color'	=> '#cf3033',
+			'name'  => __( 'Light Pink', 'la_colasa' ),
+			'slug'  => 'light-pink',
+			'color' => '#fbe1ed',
 		),
 		array(
-			'name'  => __( 'Grey', 'la_colasa' ),
-			'slug'  => 'grey',
+			'name'  => __( 'Light Grey', 'la_colasa' ),
+			'slug'  => 'light-grey',
 			'color' => '#f2f3f8',
 		),
 		array(
-			'name'  => __( 'Dark grey', 'la_colasa' ),
-			'slug'  => 'dark-grey',
-			'color' => '#616161',
-		),
-		array(
-			'name'  => __( 'Orange grey', 'la_colasa' ),
-			'slug'  => 'orange-grey',
-			'color' => '#27241d',
-		),
-		array(
-			'name'  => __( 'Almost black', 'la_colasa' ),
-			'slug'  => 'almost-black',
-			'color' => '#090c10',
+			'name'  => __( 'Black', 'la_colasa' ),
+			'slug'  => 'black',
+			'color' => '#010c10',
 		),
 		array(
 			'name'  => __( 'White', 'la_colasa' ),
@@ -244,3 +234,37 @@ add_filter( 'template_include', 'ea_template_hierarchy' );
  * 
  */
 add_filter('wpcf7_autop_or_not', '__return_false');
+
+
+
+/**
+ * Gutenberg layout class
+ * @link https://www.billerickson.net/change-gutenberg-content-width-to-match-genesis-layout/
+ *
+ * @param string $classes
+ * @return string
+ */
+function ea_gutenberg_layout_class( $classes ) {
+	$screen = get_current_screen();
+	if( ! $screen->is_block_editor() )
+		return $classes;
+
+	$layout = false;
+	$post_id = isset( $_GET['post'] ) ? intval( $_GET['post'] ) : false;
+  
+	// Get post-specific layout
+	if( $post_id )
+		$layout = genesis_get_custom_field( '_genesis_layout', $post_id );
+    
+	// Pages use full width as default, see below
+	if( empty( $layout ) && 'post' === get_post_type() )
+		$layout = 'content-width';
+    
+	// If no post-specific layout, use site-wide default
+	elseif( empty( $layout ) )
+		$layout = genesis_get_option( 'site_layout' );
+
+	$classes .= ' ' . $layout . ' ';
+	return $classes;
+}
+add_filter( 'admin_body_class', 'ea_gutenberg_layout_class' );

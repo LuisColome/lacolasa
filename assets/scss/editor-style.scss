@@ -10,15 +10,15 @@
 @use "base/typography";
 @use "base/color-options";
 
+// Editor layous
+@use "editor-layout";
+
 // Layouts
 @use "layouts/layout";
 @use "layouts/singular";
 // @use "layouts/post-summary";
 @use "layouts/gutenberg";
 @use "layouts/forms";
-
-// Editor layous
-@use "editor-layout";
 
 // -- Blocks Core
 @use "components/blocks-core/blockquote";

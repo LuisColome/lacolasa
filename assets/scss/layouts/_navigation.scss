@@ -35,7 +35,7 @@
             border: none;
             color: var(--clr-font-400);
             display: block;
-            font-size: 16px;
+            // font-size: 16px;
             font-weight: 400;
             line-height: 1.2;
             padding: 0.5em 1em;
@@ -52,7 +52,7 @@
         // Hover and focus effects for menu links. Both links and svg.
         &:hover > a,
         &:hover > .submenu-expand svg {
-            stroke: var(--clr-primary-400);
+            fill: var(--clr-primary-400);
             color: var(--clr-primary-400);
         }
 
@@ -99,7 +99,7 @@
 
             a {
                 border: 2px solid var(--clr-primary-400);
-                border-radius: $border-radius;
+                border-radius: 0.5rem;
                 color: var(--clr-primary-400);
                 // margin-left: 0.5em;
 
@@ -130,7 +130,7 @@
     .menu {
         > .menu-item-has-children {
             > a {
-                margin-right: 0.7em;
+                margin-right: 0.8em;
             }
         }
     }
@@ -156,7 +156,7 @@
             top: 50%;
             transform: translateY(-50%);
             right: 11px;
-            @include icon-position(14px);
+            @include icon-position(18px);
 
             &.expanded {
                 transform: translateY(-50%);
@@ -181,7 +181,7 @@
 
                 // Styles for chevron arrows on transparent header
                 .submenu-expand svg {
-                    stroke: white;
+                    fill: white;
                 }
 
                 // Hightlight menu link on transparent header
@@ -202,6 +202,15 @@
                 //     stroke: var(--clr-primary-400);
                 //     color: var(--clr-primary-400);
                 // }
+            }
+
+            // make sure submenus are readable because of their ligh background.
+            .sub-menu {
+                .menu-item {
+                    a {
+                        color: var(--clr-font-400);
+                    }
+                }
             }
         }
     }
@@ -273,21 +282,26 @@
             visibility: hidden;
             opacity: 0;
             position: absolute;
-            width: 215px;
-            // padding: 8px 0;
-            border-radius: 0;
+            width: 16rem;
+            padding: 0.75rem;
+            border-radius: 0.75rem;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 16%),
-                0 2px 8px rgba(0, 0, 0, 0.32);
+                0 4px 10px rgba(0, 0, 0, 0.32);
+            // box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+            //     0 8px 10px -6px rgb(0 0 0 / 0.1);
             z-index: 99;
             transform: translateY(20px);
-            transition: all 0.2s ease-in-out;
+            @include transition;
 
             .menu-item {
+                margin-block-start: 0.15rem;
                 // Links on submenus.
                 a {
-                    color: white;
-                    font-size: 0.875rem; // 14px
-                    padding: 1rem;
+                    font-size: 1rem;
+                    color: var(--clr-font-400);
+                    padding: 0.5rem 0.75rem;
+                    border-radius: 0.5rem;
+                    transition: background-color 0.15s ease-in-out;
 
                     &:hover,
                     &:focus {
@@ -307,7 +321,7 @@
                     right: 15px;
                     transform: translateY(-50%) rotate(-90deg);
                     svg {
-                        stroke: white;
+                        fill: white;
                     }
                 }
             }
@@ -325,15 +339,18 @@
         width: min(90%, 600px);
         height: 100%;
         top: 0;
-        right: -100%;
+        right: 0;
+        bottom: 0;
+        transform: translate(100%, 0) rotate(0.001deg);
         background: var(--clr-mobile-menu-bg);
-        transition: all 0.35s cubic-bezier(0.65, 0.05, 0.36, 1);
+        @include menu-transition;
+        will-change: transform;
         padding: 105px $grid-gap 0;
         overflow: auto;
         z-index: 997;
 
         &.active {
-            right: 0;
+            transform: translate(0, 0) rotate(0.001deg);
             overflow: auto;
         }
 
@@ -398,7 +415,7 @@
                     border-left: 1px solid var(--clr-grey-100) 0;
 
                     svg {
-                        stroke: white;
+                        fill: white;
                     }
                 }
             }
@@ -431,7 +448,8 @@
     background-color: rgba(0, 0, 0, 0.77);
     opacity: 0;
     z-index: 996;
-    transition: opacity 0.3s ease-in-out;
+    @include menu-transition;
+    will-change: opacity;
     pointer-events: none;
 
     @include media(">mobile_menu") {
@@ -534,13 +552,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 44px;
-    height: 44px;
+    width: 3.5rem;
+    height: 3.5rem;
+    border-radius: 4rem;
     line-height: 0;
     text-align: center;
     order: 3;
     z-index: 9999;
-    transition: transform 0.35s ease-in-out;
+    @include transition;
 
     @include media(">mobile_menu") {
         display: none; // Only display the toggle menu on mobile.
@@ -552,22 +571,22 @@
             position: fixed;
             top: 0;
             right: 1rem;
-            width: 3rem;
-            height: 3rem;
-            border-radius: 4rem;
+            width: 3.5rem;
+            height: 3.5rem;
+            // border-radius: 4rem;
             line-height: 0;
             text-align: center;
             background-color: var(--clr-toggle-menu-bg);
             box-shadow: 0px 8px 20px -4px rgba(0, 0, 0, 0.48);
             transform: translateY(1rem);
-            transition: background-color 0.3s ease-in-out;
+            @include transition;
         }
     }
 
     .menu-toggle__inner-container {
         position: relative;
         display: block;
-        width: 24px;
+        width: 1.75rem;
         height: 19px;
     }
 
@@ -576,13 +595,13 @@
         position: absolute;
         height: 3px;
         width: 100%;
-        background: var(--clr-toggle-menu-bars);
+        background-color: var(--clr-font-400);
         border-radius: 2em;
         opacity: 1;
         right: 0;
         transform: rotate(0deg);
         transform-origin: center center;
-        transition: all 0.35s ease-in-out;
+        @include menu-transition;
 
         &.first {
             top: 0px;
@@ -602,26 +621,41 @@
     // togll__bar color when header is transparent.
     .first-block-align-full .site-header:not(.shrink) & {
         .toggl__bar {
-            background: white;
+            background-color: white;
         }
 
         &.active {
             .toggl__bar {
-                background: var(--clr-toggle-menu-bars-active);
+                background-color: var(--clr-toggle-menu-bars-active);
             }
         }
     }
 
-    // Toggl__bar color, on hover and active.
-    &:hover,
+    .shrink & {
+        .toggl__bar {
+            background-color: white;
+        }
+    }
+
+    // Toggl__bar color, on hover and active when is not shrink.
+    .site-header:not(.shrink) & {
+        &:hover,
+        &.active {
+            .toggl__bar {
+                background-color: var(--clr-primary-400);
+            }
+        }
+    }
+
+    // Toggl__bar color, on active.
     &.active {
         .toggl__bar {
-            background: var(--clr-toggle-menu-bars-active);
+            background-color: var(--clr-toggle-menu-bars-active);
         }
     }
 
     &.active {
-        background-color: transparent; // prevent button defaults
+        // background-color: transparent; // prevent button defaults
         .toggl__bar {
             height: 3px;
             &.first {

@@ -4,11 +4,11 @@
 --------------------------------------------- */
 
 // Depracated since I started using CSS Custom Props
-//$default: nth(nth($brand_colors, 1), 1); // first color in $brand_colors array
+// $default: nth(nth($brand_colors, 1), 1); // first color in $brand_colors array
 
 .wp-block-button__link {
     // Common buttons styles
-    border-radius: 3px;
+    border-radius: 0.5rem;
     font-size: 20px;
     font-weight: 600;
     padding: 0.5rem 1.25rem;
@@ -42,7 +42,7 @@
         border: 2px solid var(--clr-primary-400);
         color: var(--clr-primary-400);
         background-color: transparent;
-        padding: calc(0.5em - 2px) calc(1.5em -2px);
+        padding: calc(0.5em - 2px) calc(1.5em - 2px);
 
         &:hover,
         &:focus {
