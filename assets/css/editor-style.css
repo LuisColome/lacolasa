@@ -629,17 +629,21 @@ figure {
 
 /* Common styles
 ------------------------------------------------------------------------------ */
-.wp-block.aligncontent {
+.wp-block.aligncontent,
+.wp-block .aligncontent {
   max-width: 768px;
 }
 
-.full-width-content .editor-styles-wrapper .wp-block,
-.full-width-content .editor-styles-wrapper .editor-post-title__block.wp-block,
-.full-width-content .editor-styles-wrapper .wp-block-group:not(.narrow) .wp-block-group__inner-container,
-body .editor-styles-wrapper .wp-block[data-align=full] .wp-block[data-align=wide],
-body .editor-styles-wrapper .wp-block[data-align=wide] .wp-block[data-align=wide],
-body .editor-styles-wrapper .wp-block[data-align=wide] {
+.editor-styles-wrapper .wp-block,
+.editor-styles-wrapper .editor-post-title__block.wp-block,
+.editor-styles-wrapper .wp-block-group:not(.narrow) .wp-block-group__inner-container,
+.editor-styles-wrapper .wp-block[data-align=full] .wp-block[data-align=wide] {
   max-width: 1128px;
+}
+
+.editor-styles-wrapper .wp-block[data-align=full],
+.editor-styles-wrapper .wp-block[data-align=wide] {
+  max-width: none;
 }
 
 /* Lists
@@ -780,11 +784,11 @@ table {
   clear: both;
   max-width: 1160px;
   margin: 0 auto;
-  padding: 120px 0 30px;
+  padding: 90px 0 30px;
 }
 @media (max-width: 1200px) {
   .site-inner {
-    padding: 120px 16px 1.5rem;
+    padding: 90px 16px 1.5rem;
   }
 }
 .first-block-align-full .site-inner, .first-block-cover-full .site-inner {
@@ -895,129 +899,6 @@ table {
   /* Above WP toolbar. */
   text-decoration: none;
   box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-}
-
-/* Singular
----------------------------------------------------------------------------------------------------- */
-.entry-content > *[class^=wp-block] {
-  margin: 1.5rem 0;
-}
-
-.entry-content > *,
-.editor-styles-wrapper > * {
-  max-width: 100%;
-}
-.entry-content > *:first-child,
-.editor-styles-wrapper > *:first-child {
-  margin-top: 0;
-}
-.entry-content > *:last-child,
-.editor-styles-wrapper > *:last-child {
-  margin-bottom: 0;
-}
-.full-width-content .entry-content > *.alignwide, .content-width .entry-content > *.alignwide,
-.full-width-content .editor-styles-wrapper > *.alignwide,
-.content-width .editor-styles-wrapper > *.alignwide {
-  margin: calc(2 * 1.5rem) calc(50% - 50vw);
-  max-width: 100vw;
-  width: auto;
-  padding: 0 16px;
-}
-.full-width-content .entry-content > *.alignwide[class^=wp-block-kadence], .content-width .entry-content > *.alignwide[class^=wp-block-kadence],
-.full-width-content .editor-styles-wrapper > *.alignwide[class^=wp-block-kadence],
-.content-width .editor-styles-wrapper > *.alignwide[class^=wp-block-kadence] {
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-@media (min-width: 1200px) {
-  .full-width-content .entry-content > *.alignwide, .content-width .entry-content > *.alignwide,
-.full-width-content .editor-styles-wrapper > *.alignwide,
-.content-width .editor-styles-wrapper > *.alignwide {
-    margin: calc(2 * 1.5rem) calc(25% - 25vw);
-  }
-}
-.full-width-content .entry-content > *.alignwide:first-child, .content-width .entry-content > *.alignwide:first-child,
-.full-width-content .editor-styles-wrapper > *.alignwide:first-child,
-.content-width .editor-styles-wrapper > *.alignwide:first-child {
-  margin-top: 0;
-}
-.full-width-content .entry-content > *.alignfull, .content-width .entry-content > *.alignfull,
-.full-width-content .editor-styles-wrapper > *.alignfull,
-.content-width .editor-styles-wrapper > *.alignfull {
-  margin: calc(2 * 1.5rem) calc(50% - 50vw);
-  max-width: 100vw;
-  width: 100vw;
-  padding: 0 16px;
-}
-.full-width-content .entry-content > *.alignfull.wp-block-image, .content-width .entry-content > *.alignfull.wp-block-image,
-.full-width-content .editor-styles-wrapper > *.alignfull.wp-block-image,
-.content-width .editor-styles-wrapper > *.alignfull.wp-block-image {
-  padding: 0;
-}
-.full-width-content .entry-content > *.alignfull[class^=wp-block-kadence], .content-width .entry-content > *.alignfull[class^=wp-block-kadence],
-.full-width-content .editor-styles-wrapper > *.alignfull[class^=wp-block-kadence],
-.content-width .editor-styles-wrapper > *.alignfull[class^=wp-block-kadence] {
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0;
-}
-.full-width-content .entry-content > *.aligncontent, .content-width .entry-content > *.aligncontent,
-.full-width-content .editor-styles-wrapper > *.aligncontent,
-.content-width .editor-styles-wrapper > *.aligncontent {
-  max-width: 768px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.full-width-content .entry-content > *.alignwide .alignwide, .full-width-content .entry-content > *.alignfull .alignwide, .content-width .entry-content > *.alignwide .alignwide, .content-width .entry-content > *.alignfull .alignwide,
-.full-width-content .editor-styles-wrapper > *.alignwide .alignwide,
-.full-width-content .editor-styles-wrapper > *.alignfull .alignwide,
-.content-width .editor-styles-wrapper > *.alignwide .alignwide,
-.content-width .editor-styles-wrapper > *.alignfull .alignwide {
-  max-width: 1128px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.full-width-content .entry-content > *.alignwide .aligncontent, .full-width-content .entry-content > *.alignfull .aligncontent, .content-width .entry-content > *.alignwide .aligncontent, .content-width .entry-content > *.alignfull .aligncontent,
-.full-width-content .editor-styles-wrapper > *.alignwide .aligncontent,
-.full-width-content .editor-styles-wrapper > *.alignfull .aligncontent,
-.content-width .editor-styles-wrapper > *.alignwide .aligncontent,
-.content-width .editor-styles-wrapper > *.alignfull .aligncontent {
-  max-width: 768px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.entry-content > *.alignleft,
-.editor-styles-wrapper > *.alignleft {
-  /*rtl:ignore*/
-  float: left;
-  margin: 0 1.5rem 1.5rem 0;
-}
-.entry-content > *.alignright,
-.editor-styles-wrapper > *.alignright {
-  /*rtl:ignore*/
-  float: right;
-  margin: 0 0 1.5rem 1.5rem;
-}
-.entry-content > *.aligncenter,
-.editor-styles-wrapper > *.aligncenter {
-  margin-left: auto;
-  margin-right: auto;
-}
-.entry-content > *.post-listing-block,
-.editor-styles-wrapper > *.post-listing-block {
-  margin-top: calc(2 * 1.5rem);
-  margin-bottom: calc(2 * 1.5rem);
-}
-.entry-content > *.wp-block-search,
-.editor-styles-wrapper > *.wp-block-search {
-  max-width: 568px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.entry-content > .alignfull:first-child {
-  margin-top: 0;
 }
 
 body {
