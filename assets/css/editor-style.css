@@ -477,11 +477,11 @@ table {
   clear: both;
   max-width: 1160px;
   margin: 0 auto;
-  padding: 90px 0 30px;
+  padding: 7.5rem 0 0;
 }
 @media (max-width: 1200px) {
   .site-inner {
-    padding: 90px 16px 1.5rem;
+    padding: 7.5rem 16px 0;
   }
 }
 .first-block-align-full .site-inner, .first-block-cover-full .site-inner {
